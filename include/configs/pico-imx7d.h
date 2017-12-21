@@ -199,7 +199,7 @@
 	"console=ttymxc4\0" \
 	"splashpos=m,m\0" \
 	"som=imx7d-pico\0" \
-	"baseboard=hobbit\0" \
+	"baseboard=pi\0" \
 	"default_baseboard=hobbit\0" \
 	"fdt_high=0xffffffff\0" \
 	"initrd_high=0xffffffff\0" \
