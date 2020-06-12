@@ -66,29 +66,8 @@ void spl_dram_init(void)
 	U-boot would extract this information in dram_init().
 	**************************************************/
 	
-	if (!gpio_get_value(DDR_DET_1) && !gpio_get_value(DDR_DET_2) && gpio_get_value(DDR_DET_3)) {
-		puts("dram_init: LPDDR4 4GB\n");
-		ddr_init(&dram_timing_4gb);
-		writel(0x4, M4_BOOTROM_BASE_ADDR);
-	}
-	else if (gpio_get_value(DDR_DET_1) && gpio_get_value(DDR_DET_2) && gpio_get_value(DDR_DET_3)) {
-		puts("dram_init: LPDDR4 3GB\n");
-		ddr_init(&dram_timing_3gb);
-		writel(0x3, M4_BOOTROM_BASE_ADDR);
-	}
-	else if (gpio_get_value(DDR_DET_1) && gpio_get_value(DDR_DET_2) && !gpio_get_value(DDR_DET_3)) {
-		puts("dram_init: LPDDR4 2GB\n");
-		ddr_init(&dram_timing_2gb);
-		writel(0x2, M4_BOOTROM_BASE_ADDR);
-	}
-	else if (gpio_get_value(DDR_DET_1) && !gpio_get_value(DDR_DET_2) && gpio_get_value(DDR_DET_3)) {
-		puts("dram_init: LPDDR4 1GB\n");
-		ddr_init(&dram_timing_1gb);
-		writel(0x1, M4_BOOTROM_BASE_ADDR);
-	}	
-
-	else
-		puts("Unknown DDR type!!!\n");
+	puts("dram_init: LPDDR4 1GB\n");
+	ddr_init(&dram_timing);
 }
 
 #define I2C_PAD_CTRL	(PAD_CTL_DSE6 | PAD_CTL_HYS | PAD_CTL_PUE)
