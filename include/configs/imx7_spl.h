@@ -23,7 +23,7 @@
  *    64KB is more then enough for the SPL.
  */
 #ifdef CONFIG_SECURE_BOOT
-#define CONFIG_SPL_TEXT_BASE	0x00911000
+#define CONFIG_SPL_TEXT_BASE	0x00912000
 #else
 #define CONFIG_SPL_TEXT_BASE	0x00911500
 #endif
